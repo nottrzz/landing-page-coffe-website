@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kopi Sapit | Coffee with a View</title>
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom smooth behavior & additional styles -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+    }
+    .bg-coffee-pattern {
+      background-color: #fef9f0;
+      background-image: radial-gradient(#e9d9c4 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+    }
+    .hover-scale {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hover-scale:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+    }
+    .menu-tag {
+      background: #e7dacb;
+      color: #4b2e1a;
+    }
+    .rating-star {
+      color: #f5b042;
+    }
+    /* Hero overlay animation */
+    .hero-bg-image {
+      background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 100%), url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center 35%;
+    }
+    @media (min-width: 768px) {
+      .hero-bg-image {
+        background-position: center 40%;
+      }
+    }
+    /* subtle leaf divider */
+    .leaf-border {
+      border-bottom: 2px solid #d4bc93;
+    }
+    /* custom text shadow for hero readability */
+    .text-shadow-sm {
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body class="bg-coffee-pattern text-gray-800">
+
+  <!-- ========== NAVIGATION (sticky, clean) ========== -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-amber-100">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-3 flex flex-wrap items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-mug-hot text-2xl text-amber-700"></i>
+        <span class="font-bold text-2xl tracking-tight text-stone-800">KOPI <span class="text-amber-800">SAPIT</span></span>
+      </div>
+      <div class="hidden md:flex space-x-8 text-md font-medium">
+        <a href="#home" class="hover:text-amber-700 transition">Home</a>
+        <a href="#about" class="hover:text-amber-700 transition">Story</a>
+        <a href="#menu" class="hover:text-amber-700 transition">Menu</a>
+        <a href="#reviews" class="hover:text-amber-700 transition">Reviews</a>
+        <a href="#visit" class="hover:text-amber-700 transition">Visit</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#visit" class="hidden sm:inline-block bg-amber-800 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-amber-900 transition"><i class="fas fa-map-marker-alt mr-1"></i> Directions</a>
+        <button id="mobile-menu-btn" class="block md:hidden text-2xl text-stone-700"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+    <!-- mobile dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-t border-amber-100 pb-4 px-5 flex flex-col space-y-3 text-base font-medium">
+      <a href="#home" class="py-1 hover:text-amber-700">Home</a>
+      <a href="#about" class="py-1 hover:text-amber-700">Story</a>
+      <a href="#menu" class="py-1 hover:text-amber-700">Menu</a>
+      <a href="#reviews" class="py-1 hover:text-amber-700">Reviews</a>
+      <a href="#visit" class="py-1 hover:text-amber-700">Visit</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION with BACKGROUND IMAGE (modern immersive) ========== -->
+  <section id="home" class="relative hero-bg-image min-h-[88vh] flex items-center">
+    <!-- subtle overlay gradient for better text contrast -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-24 w-full">
+      <div class="max-w-2xl text-white space-y-6">
+        <div class="flex items-center gap-2">
+          <div class="bg-amber-500/20 backdrop-blur-sm rounded-full px-3 py-1 inline-flex items-center gap-1 text-sm font-medium">
+            <i class="fas fa-star text-yellow-300 text-xs"></i>
+            <span>4.7 ★ (370+ reviews)</span>
+          </div>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-shadow-sm">Sip & <span class="border-b-4 border-amber-400">Savor</span> <br>the Summit</h1>
+        <p class="text-lg md:text-xl text-amber-50/95 max-w-lg leading-relaxed backdrop-blur-[2px] bg-black/20 inline-block px-3 py-1 rounded-2xl">Where Lombok’s finest single-origin arabica meets breathtaking views of Mount Rinjani & Sumbawa coastline.</p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#menu" class="bg-amber-500 hover:bg-amber-600 text-stone-900 font-bold px-7 py-3 rounded-full shadow-xl transition flex items-center gap-2"><i class="fas fa-coffee"></i> Explore Menu</a>
+          <a href="#visit" class="bg-white/20 backdrop-blur-md border border-white/50 hover:bg-white/30 px-7 py-3 rounded-full font-semibold transition shadow-md"><i class="fas fa-directions"></i> Get Directions</a>
+        </div>
+        <div class="flex flex-wrap gap-5 text-sm text-amber-100 font-medium pt-3">
+          <span class="flex items-center gap-1 backdrop-blur-sm bg-black/20 px-3 py-1 rounded-full"><i class="far fa-clock mr-1"></i> Open daily · Closes 11:30 pm</span>
+          <span class="flex items-center gap-1 backdrop-blur-sm bg-black/20 px-3 py-1 rounded-full"><i class="fas fa-tag mr-1"></i> Rp 1.000 – 25.000 / person</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT + HIGHLIGHTS (modern cards) ========== -->
+  <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-amber-700 font-semibold tracking-wide uppercase text-sm bg-amber-100 px-4 py-1 rounded-full">Our story</span>
+      <h2 class="text-4xl font-bold mt-4 text-stone-800">More than coffee, it's <span class="text-amber-800">an experience</span></h2>
+      <div class="w-24 h-1 bg-amber-600 mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1 space-y-4 text-gray-700">
+        <p class="text-lg">Nestled in the highlands of Sapit, East Lombok, <span class="font-bold text-amber-800">Kopi Sapit</span> is a family-owned coffee sanctuary. We cultivate, roast, and brew our own <strong>Typica & Arabica Single Origin</strong> beans, grown on volcanic slopes.</p>
+        <p class="text-gray-600">From the moment you step onto our terrace, you’ll witness a stunning panorama — the endless blue sea meeting the silhouette of Sumbawa island. Cozy interior, warm service, and the aroma of freshly ground coffee define our soul.</p>
+        <div class="flex flex-wrap gap-4 pt-3">
+          <div class="flex items-center gap-2 bg-white rounded-full shadow-sm px-4 py-2"><i class="fas fa-check-circle text-amber-700"></i> <span>Dine-in · Takeaway</span></div>
+          <div class="flex items-center gap-2 bg-white rounded-full shadow-sm px-4 py-2"><i class="fas fa-motorcycle text-amber-700"></i> <span>No-contact delivery</span></div>
+          <div class="flex items-center gap-2 bg-white rounded-full shadow-sm px-4 py-2"><i class="fas fa-seedling text-amber-700"></i> <span>Local tempeh snacks</span></div>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 grid grid-cols-2 gap-4">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=500&auto=format" alt="coffee cup" class="rounded-2xl shadow-lg h-48 w-full object-cover hover-scale">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&auto=format" alt="coffee beans" class="rounded-2xl shadow-lg h-48 w-full object-cover hover-scale mt-6">
+        <img src="https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=800" alt="cafe view" class="rounded-2xl shadow-lg h-48 w-full object-cover hover-scale col-span-2">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MENU SECTION (signature drinks + popular items) ========== -->
+  <section id="menu" class="bg-white/60 py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="bg-amber-100 text-amber-800 px-4 py-1 rounded-full text-sm font-semibold">Savor the taste</span>
+        <h2 class="text-4xl font-bold mt-3 text-stone-800">Our Signature & Favorites</h2>
+        <p class="text-gray-600 mt-2">Direct from Sapit highlands, crafted with love</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Item 1 -->
+        <div class="bg-white rounded-3xl shadow-md overflow-hidden hover-scale transition-all border border-amber-100">
+          <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1485808191679-5f86510682a2?w=600&auto=format" class="w-full h-full object-cover" alt="Coffee Latte Sapit"></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start"><h3 class="text-2xl font-bold">Coffee Latte Sapit</h3><span class="text-amber-800 font-bold text-xl">Rp 22k</span></div>
+            <p class="text-gray-500 mt-1">Velvety espresso with steamed milk, topped with light caramel dust & local cinnamon.</p>
+            <div class="mt-3 flex gap-1 text-xs"><span class="menu-tag px-2 py-1 rounded-full">⭐ Popular</span><span class="menu-tag px-2 py-1 rounded-full">Best Seller</span></div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="bg-white rounded-3xl shadow-md overflow-hidden hover-scale transition-all border border-amber-100">
+          <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&auto=format" class="w-full h-full object-cover" alt="Kopi Arabika Single Origin Typica Sapit"></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start"><h3 class="text-2xl font-bold">Arabica Single Origin Typica</h3><span class="text-amber-800 font-bold text-xl">Rp 25k</span></div>
+            <p class="text-gray-500 mt-1">Floral aroma, chocolatey finish. Grown on Sapit’s volcanic soil, hand-picked & sun-dried.</p>
+            <div class="mt-3 flex gap-1 text-xs"><span class="menu-tag px-2 py-1 rounded-full">⭐ Local beans</span><span class="menu-tag px-2 py-1 rounded-full">Signature</span></div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="bg-white rounded-3xl shadow-md overflow-hidden hover-scale transition-all border border-amber-100">
+          <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600&auto=format" class="w-full h-full object-cover" alt="Tempeh snack & cold brew"></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start"><h3 class="text-2xl font-bold">Tempeh Krispi & Cold Brew</h3><span class="text-amber-800 font-bold text-xl">Rp 18k</span></div>
+            <p class="text-gray-500 mt-1">Crunchy local tempeh snack paired with smooth cold brew — guest favorite.</p>
+            <div class="mt-3 flex gap-1 text-xs"><span class="menu-tag px-2 py-1 rounded-full">Snack Pairing</span><span class="menu-tag px-2 py-1 rounded-full">Vegan option</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-gray-500 italic text-sm"><i class="fas fa-utensils mr-1"></i> Also enjoy Nasi Goreng, Jujube refreshment, and seasonal delights. <br> Price range Rp 1.000 – 25.000 per person.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS HIGHLIGHT (from Google Maps data) ========== -->
+  <section id="reviews" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-amber-50 rounded-full px-5 py-2"><i class="fas fa-star text-yellow-500"></i><span class="font-bold text-xl">4.7</span><span class="text-gray-600">· 370+ reviews</span></div>
+      <h2 class="text-4xl font-bold mt-4">What our guests say 🌄</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Real words from coffee lovers & travelers</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-7">
+      <!-- Review card 1 -->
+      <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition">
+        <div class="flex text-amber-400 text-sm mb-2">★★★★★</div>
+        <p class="font-semibold">"Coffee and scenery with best price"</p>
+        <p class="text-gray-600 text-sm mt-2">Amazing view of Sumbawa, kopinya mantap! Very affordable, cozy vibe. Will definitely come back for sunset coffee.</p>
+        <div class="flex items-center gap-2 mt-4 text-xs text-gray-400"><i class="fas fa-user-circle"></i> Na Dine · Local Guide</div>
+      </div>
+      <!-- Review card 2 -->
+      <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition">
+        <div class="flex text-amber-400 text-sm mb-2">★★★★★</div>
+        <p class="font-semibold">"Modest & cozy place with a luxurious experience"</p>
+        <p class="text-gray-600 text-sm mt-2">Freshly roasted Arabica from their own fields. The tempeh snack is a must! Bought extra coffee to take home.</p>
+        <div class="flex items-center gap-2 mt-4 text-xs text-gray-400"><i class="fas fa-user-circle"></i> Tim · 14 reviews</div>
+      </div>
+      <!-- Review card 3 -->
+      <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition">
+        <div class="flex text-amber-400 text-sm mb-2">★★★★☆</div>
+        <p class="font-semibold">"Great Coffeeshop with delicious coffee and amazing view"</p>
+        <p class="text-gray-600 text-sm mt-2">Highly recommended! The food, coffee, and staff are wonderful. Perfect place to relax and enjoy the panorama.</p>
+        <div class="flex items-center gap-2 mt-4 text-xs text-gray-400"><i class="fas fa-user-circle"></i> Marie F. · 2 reviews</div>
+      </div>
+    </div>
+    <div class="mt-12 flex justify-center">
+      <a href="#" class="text-amber-800 font-medium border-b border-amber-300 hover:text-amber-900">Read all 370+ reviews on Google Maps →</a>
+    </div>
+  </section>
+
+  <!-- ========== VISIT / LOCATION & INFO CARD ========== -->
+  <section id="visit" class="relative py-16 px-6 bg-stone-100/80">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1 space-y-5">
+          <span class="text-amber-700 text-sm font-semibold bg-amber-100/80 px-3 py-1 rounded-full">📍 Find us</span>
+          <h3 class="text-3xl font-bold">Jl. Raya Sapit, Sapit, Kec. Suela, Kabupaten Lombok Timur, NTB 83653</h3>
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="bg-white shadow-sm rounded-full px-4 py-2"><i class="fas fa-phone-alt text-amber-700 mr-2"></i>0853-3369-4767</div>
+            <div class="bg-white shadow-sm rounded-full px-4 py-2"><i class="far fa-clock text-amber-700 mr-2"></i>Open until 11:30 pm</div>
+            <div class="bg-white shadow-sm rounded-full px-4 py-2"><i class="fas fa-money-bill-wave text-amber-700 mr-2"></i>Rp 1k–25k per person</div>
+          </div>
+          <div class="flex gap-3 pt-2">
+            <a href="https://maps.google.com/?q=Jl.+Raya+Sapit,+Sapit,+Kec.+Suela,+Kabupaten+Lombok+Timur,+NTB+83653" target="_blank" class="bg-amber-800 hover:bg-amber-900 text-white px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-md transition"><i class="fab fa-google"></i> Google Maps Directions</a>
+            <a href="#" class="border border-amber-700 text-amber-800 px-6 py-3 rounded-full inline-flex items-center gap-2 hover:bg-amber-50 transition"><i class="fas fa-share-alt"></i> Share location</a>
+          </div>
+          <div class="text-sm text-gray-500 flex gap-4 mt-3"><span><i class="fas fa-car"></i> Dine-in</span> <span><i class="fas fa-shopping-bag"></i> Takeaway</span> <span><i class="fas fa-truck"></i> No‑contact delivery</span></div>
+        </div>
+        <div class="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+          <iframe class="w-full h-72 md:h-80 rounded-2xl" style="filter: brightness(1.02);" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Jl.+Raya+Sapit+Sapit+Kec.+Suela+Lombok+Timur&zoom=14" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY VIBE (from popular photos) ========== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold">☕ Vibe & moments at Kopi Sapit</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        <img class="rounded-xl h-48 w-full object-cover shadow-md hover:opacity-90 transition" src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="coffee shop interior">
+        <img class="rounded-xl h-48 w-full object-cover shadow-md hover:opacity-90 transition" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=500&auto=format" alt="iced coffee">
+        <img class="rounded-xl h-48 w-full object-cover shadow-md hover:opacity-90 transition" src="https://images.pexels.com/photos/128242/pexels-photo-128242.jpeg?auto=compress&cs=tinysrgb&w=800" alt="coffee beans landscape">
+        <img class="rounded-xl h-48 w-full object-cover shadow-md hover:opacity-90 transition" src="https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=800" alt="cafe view mountain">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER + OPEN HOURS DETAILS ========== -->
+  <footer class="bg-stone-900 text-stone-300 py-12 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-2 text-amber-400"><i class="fas fa-mug-hot text-2xl"></i><span class="font-bold text-xl text-white">KOPI SAPIT</span></div>
+        <p class="mt-3 text-sm">Authentic local coffee with breathtaking views. Taste the highland tradition in every cup.</p>
+        <div class="flex gap-4 mt-4 text-amber-400 text-xl"><i class="fab fa-instagram hover:text-white transition"></i><i class="fab fa-facebook hover:text-white transition"></i><i class="fab fa-tiktok hover:text-white transition"></i></div>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white text-lg">Opening Hours</h4>
+        <ul class="mt-2 space-y-1 text-sm">
+          <li>Monday - Sunday: 08:00 – 23:30</li>
+          <li>Kitchen: until 10:30 pm</li>
+          <li><i class="fas fa-check-circle text-amber-500"></i> Takeaway & delivery via call</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white text-lg">Contact & Info</h4>
+        <ul class="mt-2 space-y-2 text-sm">
+          <li><i class="fas fa-phone-alt mr-2 w-5 text-amber-400"></i> 0853-3369-4767</li>
+          <li><i class="fas fa-location-dot mr-2 w-5 text-amber-400"></i> GH54+C4 Sapit, Lombok Timur</li>
+          <li><i class="far fa-clock mr-2 w-5 text-amber-400"></i> Popular hours: weekends & sunset</li>
+        </ul>
+        <button onclick="alert('📍 Jl. Raya Sapit, Sapit, Suela, Lombok Timur 83653 ☕ Open until 23:30')" class="mt-4 text-amber-400 text-sm underline">Get quick directions</button>
+      </div>
+    </div>
+    <div class="border-t border-stone-700 mt-10 pt-6 text-center text-xs text-stone-400">
+      © 2025 Kopi Sapit — real taste of Lombok highlands. Data from Google Maps reviews & local menu.
+    </div>
+  </footer>
+
+  <!-- mobile menu toggle script -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    // small interactive: smooth highlight for directions
+    console.log("Kopi Sapit website — hero background image applied, clean & modern ready for customers!");
+  </script>
+</body>
+</html>
